@@ -3,6 +3,8 @@ var scriptTitle = "pushData V1.4 (11/7/12)";
 // Published under GNU General Public License, version 3 (GPL-3.0)
 // See restrictions at http://www.opensource.org/licenses/gpl-3.0.html
 // Support and contact at http://www.youpd.org/pushdata
+var scriptName = "pushData"
+var scriptTrackingId = "UA-33742127-1"
 
 var HAMSTERIMAGEURL = "https://c04a7a5e-a-3ab37ab8-s-sites.googlegroups.com/a/newvisions.org/data-dashboard/searchable-docs-collection/hamsterSync.gif?attachauth=ANoY7coInwbQyw9SsTc07gOK01RkXnQv9Xx0k2mtjXW7KoiGtHYG3mHqZZDv2fFI8SCStyxejKUXivcvLyS6FmMi0rWAb0-GfFmErAIYebtQMZyVXBYd4Pr91b4JVrh25C0nTsYb4Jvpk8AYRdoBxnRTRL8nhL-22zRpHNDE5my1hJIUBgy2vYHmL3WihAxq5cwNGgEtS1Gq8UDNCZRvOQsI4CNiyWfQfLVL61JNi8UHTG1xMSC3Y4JTGhZxYx41RDHXseVqQjMc&attredirects=0";
 
@@ -16,8 +18,7 @@ function onInstall () {
 
 function pushData_runInstall () {
   //ensure needed triggers are properly installed 
-  setPushDataUid();
-  pushData_getInstitutionalTrackerObject();
+  logInstall()
   var triggers = ScriptApp.getScriptTriggers();
   var timeTriggerSet = false;
   var editTriggerSet = false;
@@ -309,8 +310,7 @@ function refreshSSInfo (row, col) {
 
 //Main function where pushing of data occurs
 function pushData (override) {
-  setPushDataUid();
-  pushData_getInstitutionalTrackerObject();
+  logInstall()
   pushData_refreshSSKeys();
   var pushStartTime = new Date();
   pushStartTime = parseInt(pushStartTime.getTime()).toFixed();
